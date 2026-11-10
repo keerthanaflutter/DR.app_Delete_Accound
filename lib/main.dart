@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 const appName = "Dr. SKM's Academy";
-const supportEmail = 'erp.shahisolutions@gmail.com';
+const supportEmail = 'contact@drskmacademy.com';
 const background = Color(0xFFEFF4E2);
 const brand = Color(0xFF87986B);
 const danger = Color(0xFFD65745);
@@ -47,7 +47,7 @@ class _DeleteAccountPageState extends State<DeleteAccountPage> {
       query: _query({
         'subject': 'Account deletion request – $appName',
         'body': 'Please delete my $appName account and its data.\n\n'
-            'Google account email: ${_email.text.trim()}\n'
+            'Account email: ${_email.text.trim()}\n'
             'Reason (optional): ${_reason.text.trim()}\n',
       }),
     );
@@ -99,8 +99,9 @@ class _DeleteAccountPageState extends State<DeleteAccountPage> {
                   title: "Don't have the app? Request it here",
                   children: [
                     const Text(
-                      'Enter the Google account you signed in with. We delete '
-                      'the account within 7 days and reply to confirm.',
+                      'Enter the email of your account: the one you signed up '
+                      'with, or your Google or Apple email if you used that. We '
+                      'delete the account within 7 days and reply to confirm.',
                       style: TextStyle(height: 1.4),
                     ),
                     const SizedBox(height: 16),
@@ -111,7 +112,7 @@ class _DeleteAccountPageState extends State<DeleteAccountPage> {
                           controller: _email,
                           keyboardType: TextInputType.emailAddress,
                           decoration: const InputDecoration(
-                              labelText: 'Google account email',
+                              labelText: 'Account email',
                               border: OutlineInputBorder()),
                           validator: (v) =>
                               RegExp(r'^\S+@\S+\.\S+$').hasMatch(v?.trim() ?? '')
@@ -153,8 +154,9 @@ class _DeleteAccountPageState extends State<DeleteAccountPage> {
                       'Everything tied to the account: your profile (name, '
                       'email, phone, photo), course selection, subscription, '
                       'progress, quiz and test results, saved items, '
-                      'comments, notification tokens and sessions. Nothing '
-                      'is kept, and deletion cannot be undone.',
+                      'comments, notification tokens and sessions. Only '
+                      'payment records the law requires us to keep are '
+                      'retained. Deletion cannot be undone.',
                       style: TextStyle(height: 1.5),
                     ),
                   ],
